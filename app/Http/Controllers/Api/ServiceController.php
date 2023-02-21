@@ -16,8 +16,9 @@ class ServiceController extends Controller
      */
     public function index()
     {
-        $services = Service::all()->where('availability',true);;
-        return $services;
+        $services = Service::where('availability', true)->get(); // Obtener los usuarios con correo electrónico de Gmail
+        $service= $services->values()->all(); 
+        return $service;
     }
 
     /**

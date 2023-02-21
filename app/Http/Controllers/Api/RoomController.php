@@ -16,8 +16,9 @@ class RoomController extends Controller
     public function index()
     {
         //
-        $rooms = Room::all()->where('availability',true);
-        return $rooms;
+        $rooms = Room::where('availability', true)->get(); // Obtener los usuarios con correo electrónico de Gmail
+        $room= $rooms->values()->all(); 
+        return $room;
     }
 
     /**

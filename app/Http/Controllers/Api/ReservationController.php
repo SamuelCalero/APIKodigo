@@ -14,7 +14,8 @@ class ReservationController extends Controller
      */
     public function index()
     {
-        $reservation = Reservation::all()->where('availability',true);
+        $reservations = Reservation::where('availability', true)->get(); // Obtener los usuarios con correo electrónico de Gmail
+        $reservation= $reservations->values()->all(); 
         return $reservation;
     }
 

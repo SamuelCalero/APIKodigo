@@ -15,7 +15,9 @@ class UserController extends Controller
      */
     public function index()
     {
-        $user=User::all();
+
+        $users = User::where('availability', true)->get(); // Obtener los usuarios con correo electrónico de Gmail
+        $user= $users->values()->all(); 
         return $user;
     }
 
