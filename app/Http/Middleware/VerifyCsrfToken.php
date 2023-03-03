@@ -12,6 +12,18 @@ class VerifyCsrfToken extends Middleware
      * @var array<int, string>
      */
     protected $except = [
-        //
+        'PUT',
+        'DELETE',
+        'POST',
+        'GET',
+    ];
+    protected $addHttpMethods = [
+        'PUT',
+        'DELETE',
+        'POST',
+        'GET',
+    ];
+    protected $addHttpHeaders = [
+        'Access-Control-Allow-Origin' => 'http://localhost:3000',
     ];
 }

@@ -57,12 +57,19 @@ class ReservationController extends Controller
      * @param  \App\Models\Reservation  $reservation
      * @return \Illuminate\Http\Response
      */
+    public function showAll($id)
+    {
+        $reservations = Reservation::where('Id_client', $id)
+                            ->where('availability', true)
+                            ->get();
+        $reservation= $reservations->values()->all(); 
+        return $reservation;
+    }
     public function show($id)
     {
         $reservation = Reservation::find($id);
        return $reservation;
     }
-
     /**
      * Show the form for editing the specified resource.
      *
@@ -90,7 +97,6 @@ class ReservationController extends Controller
         $reservation->Id_client = $request->Id_client;
         $reservation->Details = $request->Details;
         $reservation->Price = $request->Price;
-    
         $reservation->save();
 
     }

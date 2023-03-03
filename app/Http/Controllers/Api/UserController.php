@@ -16,7 +16,7 @@ class UserController extends Controller
     public function index()
     {
 
-        $users = User::where('availability', true)->get(); // Obtener los usuarios con correo electrónico de Gmail
+        $users = User::where('availability', true)->get(); 
         $user= $users->values()->all(); 
         return $user;
     }
@@ -85,7 +85,7 @@ class UserController extends Controller
         $user->telephone = $request->telephone;
         $user->address = $request->address;
         $user->email = $request->email;
-        $user->password= Hash::make($request->password);
+        $user->rol= $request->rol;
         $user->save();
     }
 
